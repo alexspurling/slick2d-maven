@@ -52,7 +52,7 @@
                             <artifactId>slick</artifactId>
                             <file>slick-${slick.version}.jar</file>
                             <version>${slick.version}</version>
-                            <packaging>jar</packaging>
+                            <pomFile>slick.pom</pomFile>
                         </configuration>
                     </execution>
                     <execution>

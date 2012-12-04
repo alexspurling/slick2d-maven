@@ -1,8 +1,19 @@
 #!/bin/sh
 
-mvn install:install-file -DgroupId=javax.jnlp -DartifactId=jnlp -Dpackaging=jar -Dfile=jnlp-1.2.jar -Dversion=1.2
-mvn install:install-file -DgroupId=jcraft -DartifactId=jogg -Dpackaging=jar -Dfile=jogg-0.0.7.jar -Dversion=0.0.7
-mvn install:install-file -DgroupId=jcraft -DartifactId=jorbis -Dpackaging=jar -Dfile=jorbis-0.0.15.jar -Dversion=0.0.15
-mvn install:install-file -DgroupId=phys2d -DartifactId=phys2d -Dpackaging=jar -Dfile=phys2d-060408.jar -Dversion=060408
-mvn install:install-file -DgroupId=ibxm -DartifactId=ibxm -Dpackaging=jar -Dfile=ibxm-unknown.jar -Dversion=unknown
+slickversion=235
+phys2Dversion=060408
+jnlpversion=1.2
+ibxmversion=unknown
+joggversion=0.0.7
+jorbisversion=0.0.15
+
+# Install all of the dependencies for Slick
+mvn install:install-file -DgroupId=phys2d -DartifactId=phys2d -Dpackaging=jar -Dfile=phys2d-$phys2Dversion.jar -Dversion=$phys2Dversion
+mvn install:install-file -DgroupId=javax.jnlp -DartifactId=jnlp -Dpackaging=jar -Dfile=jnlp-$jnlpversion.jar -Dversion=$jnlpversion
+mvn install:install-file -DgroupId=ibxm -DartifactId=ibxm -Dpackaging=jar -Dfile=ibxm-$ibxmversion.jar -Dversion=$ibxmversion
+mvn install:install-file -DgroupId=jcraft -DartifactId=jogg -Dpackaging=jar -Dfile=jogg-$joggversion.jar -Dversion=$joggversion
+mvn install:install-file -DgroupId=jcraft -DartifactId=jorbis -Dpackaging=jar -Dfile=jorbis-$jorbisversion.jar -Dversion=$jorbisversion
+
+# Install Slick itself
+mvn install:install-file -Dfile=slick-$slickversion.jar -DpomFile=slick.pom
 
