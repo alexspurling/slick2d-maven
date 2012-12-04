@@ -2,7 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion> 
+    <modelVersion>4.0.0</modelVersion> 
     <groupId>slick</groupId>
     <artifactId>slick</artifactId>
     <version>235</version>
@@ -54,4 +54,45 @@
 
     </dependencies>
 
+	<build>
+    <pluginManagement>
+      <plugins>
+        <!--Disable the default behaviour for mvn install -->
+    	<plugin>
+    	  <groupId>org.apache.maven.plugins</groupId>
+    	  <artifactId>maven-install-plugin</artifactId>
+    	  <executions>
+    		<execution>
+    		  <id>default-install</id>
+    		  <phase>none</phase>
+    		</execution>
+    	  </executions>
+    	</plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+    	<groupId>org.apache.maven.plugins</groupId>
+    	<artifactId>maven-install-plugin</artifactId>
+    	<version>2.3.1</version>
+    	<executions>
+    	  <execution>
+    		<id>install-jar-lib</id>
+    		<goals>
+    		  <goal>install-file</goal>
+    		</goals>
+    		<phase>install</phase>
+    		<configuration>
+              <groupId>phys2d</groupId>
+              <artifactId>phys2d</artifactId>
+              <file>phys2d-060408.jar</file>
+              <version>060408</version>
+    		  <packaging>jar</packaging>
+    		</configuration>
+    	  </execution>
+    	</executions>
+      </plugin>
+    </plugins>
+	</build>
 </project>
