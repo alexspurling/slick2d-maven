@@ -8,7 +8,9 @@ there is no public maven repository.
 
 Simply clone this project and run:
 
-```./install.sh```
+```
+./install.sh
+```
 
 This will install all the dependencies for the included version of Slick (build 235)
 
